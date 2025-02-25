@@ -366,12 +366,6 @@ document.addEventListener('DOMContentLoaded', function() {
     sendRequest();
   });
 
-  // 在 DOMContentLoaded 事件監聽器中添加
-  document.getElementById('reloadExt').addEventListener('click', function() {
-    chrome.runtime.reload();
-    window.close(); // 關閉 popup
-  });
-
   // 監聽 URL 輸入框的變化
   document.getElementById('apiUrl').addEventListener('input', updateButtonVisibility);
   

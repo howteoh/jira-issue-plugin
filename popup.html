@@ -91,6 +91,15 @@
       background: #f5f5f5;
       border-radius: 4px;
     }
+    /* 添加作者信息樣式 */
+    .author-info {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      font-size: 12px;
+      color: #666;
+      font-style: italic;
+    }
   </style>
 </head>
 <body>
@@ -146,8 +155,9 @@
     <div id="response"></div>
   </div>
 
-  <div id="reloadSection">
-    <button id="reloadExt">Script update</button>
+  <!-- 添加作者信息 -->
+  <div class="author-info">
+    Created by HowTeoh
   </div>
 
   <script src="popup.js"></script>

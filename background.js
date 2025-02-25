@@ -1,28 +1,4 @@
-// 添加自動更新檢查
-function checkForDailyReload() {
-  // 獲取上次更新時間
-  chrome.storage.local.get('lastReloadTime', function(result) {
-    const now = new Date();
-    const lastReload = result.lastReloadTime ? new Date(result.lastReloadTime) : null;
-    
-    // 如果沒有上次更新時間，或者已經過了一天
-    if (!lastReload || now.getDate() !== lastReload.getDate()) {
-      console.log('Performing daily reload...');
-      
-      // 更新最後重載時間
-      chrome.storage.local.set({ 'lastReloadTime': now.toString() }, function() {
-        if (chrome.runtime.lastError) {
-          console.error('Error saving reload time:', chrome.runtime.lastError);
-          return;
-        }
-        chrome.runtime.reload();
-      });
-    }
-  });
-}
-
 // 在背景腳本啟動時檢查（這會在 Chrome 啟動時執行）
-checkForDailyReload();
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   console.log('Background received message:', request);
